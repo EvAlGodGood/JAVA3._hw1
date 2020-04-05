@@ -9,13 +9,13 @@ public class MassGen<T> {
         this.mass = mass;
     }
 
-    public void swapEL(int i, int j) { //меняем местами два конкретных элемента экземляра класса
+    public void swapEL(int i, int j) { //меняем местами два конкретных элемента массива внутри экземляра класса
         mass [0] = mass [i];
         mass [i] = mass [j];
         mass [j] = mass [0];
     }
 
-    public T getMass(int i) {
+    public T getMass(int i) { //берем элемент массива из созданного экземпляра класса
         return mass[i];
     }
 
@@ -27,9 +27,17 @@ public class MassGen<T> {
         System.out.println();
     }
 
-    public T getMassType() { //возьмем тип данных в конкретном экземпляре класса
-        return (T) mass[0].getClass().getSimpleName();
+    public ArrayList genArrList (){ //забиваем лист элементами массива
+        ArrayList <T> arrListMass = new ArrayList<>();
+        for (int i=1; i<mass.length; i++){ //c 1 тк [0] буфер для свапа
+            arrListMass.add(mass[i]);
+        }
+        return arrListMass;
     }
+
+//    public T getMassType() { //возьмем тип данных в конкретном экземпляре класса
+//        return (T) mass[0].getClass().getSimpleName();
+//    }
 
     //public void genArrList(){
 
